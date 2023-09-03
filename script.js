@@ -1,6 +1,24 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+const timeClasses = ['past', 'present', 'future'];
+
+function replaceClass(timeBlock, className){
+  console.log(timeBlock);
+  if (!timeBlock.hasClass(className)){
+    timeClasses.forEach((timeClass) => {
+      if (timeBlock.hasClass(timeClass)){
+        timeBlock.removeClass(timeClass);
+      }
+    });
+    timeBlock.addClass(className);
+  }
+}
+
+function return24DayHour(twelveClockHour){
+  return ((9 <= twelveClockHour) && (twelveClockHour<= 12))? twelveClockHour : (twelveClockHour + 12);
+}
+
 $(function () {
   
   // TODO: Add a listener for click events on the save button. This code should
@@ -23,6 +41,19 @@ $(function () {
   // TODO: Add code to display the current date in the header of the page.
   //var advancedFormat = require('dayjs/plugin/advancedFormat');
   //dayjs.extend(advancedFormat); 
+
   var currentDate = dayjs();
   $('#currentDay').text(currentDate.format('dddd, MMMM D'));
+  var currentHour = currentDate.hour()
+  var $timeBlocks = $('#container').children('.time-block');
+  $.each($timeBlocks, function (index) {
+    let timeBlockHour = return24DayHour($(this).attr("id").split('-')[1]);
+    if (timeBlockHour == currentHour){
+      replaceClass($(this),'present');
+    }else if (timeBlockHour < currentHour){ // Past
+      replaceClass($(this),'past');
+    }else {// hour > currentHour Future
+      replaceClass($(this),'future');
+    }
+  });
 });
