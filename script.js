@@ -3,8 +3,8 @@
 // in the html.
 const timeClasses = ['past', 'present', 'future'];
 
+//Replace the time class in the time block
 function replaceClass(timeBlock, className){
-  console.log(timeBlock);
   if (!timeBlock.hasClass(className)){
     timeClasses.forEach((timeClass) => {
       if (timeBlock.hasClass(timeClass)){
@@ -14,7 +14,7 @@ function replaceClass(timeBlock, className){
     timeBlock.addClass(className);
   }
 }
-
+//Convert the time block 12-clock-hour to a 24-clock hour
 function return24DayHour(twelveClockHour){
   return ((9 <= twelveClockHour) && (twelveClockHour<= 12))? twelveClockHour : (twelveClockHour + 12);
 }
@@ -42,12 +42,18 @@ $(function () {
   //var advancedFormat = require('dayjs/plugin/advancedFormat');
   //dayjs.extend(advancedFormat); 
 
+  //Use the Dayjs to return the current day 
   var currentDate = dayjs();
   $('#currentDay').text(currentDate.format('dddd, MMMM D'));
   var currentHour = currentDate.hour()
+
+  //Add code to apply the past, present, or future class to each time
+  // block by comparing the id to the current hour.
   var $timeBlocks = $('#container').children('.time-block');
-  $.each($timeBlocks, function (index) {
-    let timeBlockHour = return24DayHour($(this).attr("id").split('-')[1]);
+  $.each($timeBlocks, function () {
+    let timeBlockHour = return24DayHour(parseInt($(this).attr("id").split('-')[1]));
+    console.log(`Time Block hour: ${timeBlockHour}`);
+    console.log(`current hour: ${currentHour}`);
     if (timeBlockHour == currentHour){
       replaceClass($(this),'present');
     }else if (timeBlockHour < currentHour){ // Past
@@ -55,5 +61,13 @@ $(function () {
     }else {// hour > currentHour Future
       replaceClass($(this),'future');
     }
+
+    //Save an event in the localstorage binding it with the timeblock id
+    $(this).on('click', function () {
+      let event = $(this).children('textarea').eq( 0 ).val()
+      localStorage.setItem($(this).attr('id'), event);
+    });
+
+
   });
 });
