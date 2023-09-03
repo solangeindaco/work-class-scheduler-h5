@@ -51,9 +51,9 @@ $(function () {
   // block by comparing the id to the current hour.
   var $timeBlocks = $('#container').children('.time-block');
   $.each($timeBlocks, function () {
-    let timeBlockHour = return24DayHour(parseInt($(this).attr("id").split('-')[1]));
-    console.log(`Time Block hour: ${timeBlockHour}`);
-    console.log(`current hour: ${currentHour}`);
+    let timeBlockId = $(this).attr("id");
+    let timeBlockHour = return24DayHour(parseInt(timeBlockId.split('-')[1]));
+  
     if (timeBlockHour == currentHour){
       replaceClass($(this),'present');
     }else if (timeBlockHour < currentHour){ // Past
@@ -62,10 +62,15 @@ $(function () {
       replaceClass($(this),'future');
     }
 
+    //Display any user input that was saved in localStorage and set
+    // the values of the corresponding textarea elements
+    let eventText = localStorage.getItem(timeBlockId);
+    $(this).children('textarea').eq( 0 ).val(eventText);
+
     //Save an event in the localstorage binding it with the timeblock id
     $(this).on('click', function () {
       let event = $(this).children('textarea').eq( 0 ).val()
-      localStorage.setItem($(this).attr('id'), event);
+      localStorage.setItem(timeBlockId, event);
     });
 
 
