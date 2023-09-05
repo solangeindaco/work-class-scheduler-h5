@@ -43,6 +43,9 @@ $(function () {
   //dayjs.extend(advancedFormat); 
 
   //Use the Dayjs to return the current day 
+  //var advancedFormat = require('dayjs/plugin/advancedFormat');
+  //dayjs.extend(advancedFormat);
+
   var currentDate = dayjs();
   $('#currentDay').text(currentDate.format('dddd, MMMM D'));
   var currentHour = currentDate.hour()

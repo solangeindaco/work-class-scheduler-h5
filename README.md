@@ -4,7 +4,7 @@
 
 I deployed this repository to learn about JQuery and Day.js. The basic code for the website was provided by a Bootcamp course. I create a simple calendar application that allows a user to save events for each hour of a typical working day (9am–5pm). This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 I learn:  
-    - how to   
+    - how to use Dayjs 
     - how to  
     - How to 
     - How to 
@@ -12,7 +12,7 @@ I learn:
 ## Installation
 
 Repository URL: https://github.com/solangeindaco/work-day-scheduler-h5  
-Website URL:  https://solangeindaco.github.io/work-day-scheduler-h5/  
+Website URL:  https://solangeindaco.github.io/work-day-scheduler-h5/
 
 ## Usage
 
@@ -24,8 +24,8 @@ The following image shows the web application's appearance and functionality:
 ## Credits
 
 To refactor this website, I used the following tutorials:  
-    - Javascript: https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics  
-    -     
+    - Dayjs, JavaScript library: https://day.js.org/ 
+    - 
 
 ## License
 
