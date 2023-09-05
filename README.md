@@ -4,10 +4,8 @@
 
 I deployed this repository to learn about JQuery and Day.js. The basic code for the website was provided by a Bootcamp course. I create a simple calendar application that allows a user to save events for each hour of a typical working day (9am–5pm). This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 I learn:  
-    - how to use Dayjs 
+    - how to use Dayjs    
     - how to  
-    - How to 
-    - How to 
 
 ## Installation
 
