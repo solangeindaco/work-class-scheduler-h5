@@ -3,9 +3,10 @@
 ## Description
 
 I deployed this repository to learn about JQuery and Day.js. The basic code for the website was provided by a Bootcamp course. I create a simple calendar application that allows a user to save events for each hour of a typical working day (9am–5pm). This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
-I learn:  
-    - how to use Dayjs.    
-    - how to rename a repository.
+I learn:     
+    - how to use Day.js to format dates.             
+    - how to Use jQuery to perform DOM manipulation and traversals and implement interactivity using event handlers.      
+    - how to rename a repository.   
 
 ## Installation
 
@@ -22,7 +23,8 @@ The following image shows the web application's appearance and functionality:
 ## Credits
 
 To refactor this website, I used the following tutorials:  
-    - Dayjs, JavaScript library: https://day.js.org/ 
+    - Dayjs, JavaScript library: https://day.js.org/    
+    - JQuery : https://api.jquery.com/category/traversing/    
     - Github: https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository    
 
 ## License

@@ -22,9 +22,9 @@ $(function () {
 
   //Display the current date in the header of the page.
   var currentDate = dayjs();
-  $('#currentDay').text(currentDate.format('dddd, MMMM D'));
+  $('#currentDay').text(currentDate.format('dddd, MMMM D, YYYY'));
   //get the current hour in 24-hour time
-  var currentHour = currentDate.hour()
+  var currentHour = currentDate.hour();
 
   //Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour.
