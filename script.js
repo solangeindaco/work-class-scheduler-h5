@@ -21,8 +21,9 @@ $(function () {
   }
 
   //Display the current date in the header of the page.
+  
   var currentDate = dayjs();
-  $('#currentDay').text(currentDate.format('dddd, MMMM D, YYYY'));
+  $('#currentDay').text(currentDate.format('dddd, MMMM Do, YYYY'));
   //get the current hour in 24-hour time
   var currentHour = currentDate.hour();
 
