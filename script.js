@@ -20,8 +20,7 @@ $(function () {
     return ((9 <= twelveClockHour) && (twelveClockHour<= 12))? twelveClockHour : (twelveClockHour + 12);
   }
 
-  //Display the current date in the header of the page.
-  
+  //Display the current date in the header of the page using Dayjs library and AdvancedFormat plugin.
   var currentDate = dayjs();
   $('#currentDay').text(currentDate.format('dddd, MMMM Do, YYYY'));
   //get the current hour in 24-hour time
@@ -48,11 +47,11 @@ $(function () {
    // Get any user input that was saved in localStorage and set
    // the values of the corresponding textarea elements.
     let eventText = localStorage.getItem(timeBlockId);
-    $(this).children('textarea').eq( 0 ).val(eventText);
+    $(this).children('textarea').eq(0).val(eventText);
 
     //Save an event in the local storage binding it with the timeblock id
     $(this).on('click', function () {
-      let event = $(this).children('textarea').eq( 0 ).val()
+      let event = $(this).children('textarea').eq(0).val()
       localStorage.setItem(timeBlockId, event);
     });
 
