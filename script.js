@@ -50,11 +50,11 @@ $(function () {
     $(this).children('textarea').eq(0).val(eventText);
 
     //Save an event in the local storage binding it with the timeblock id
-    $(this).on('click', function () {
-      let event = $(this).children('textarea').eq(0).val()
+    let $saveBtn = $(this).children('button').eq(0);
+    $saveBtn.on('click', function () {
+      let event = $(this).siblings('textarea').eq(0).val()
       localStorage.setItem(timeBlockId, event);
     });
-
 
   });
 });
