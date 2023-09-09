@@ -2,6 +2,7 @@
 $(function () {
   // css time block classes
   const timeClasses = ['past', 'present', 'future'];
+  $('#save-message').hide();
 
   //Replace the time css class in the time block
   function replaceClass(timeBlock, className){
@@ -47,13 +48,20 @@ $(function () {
    // Get any user input that was saved in localStorage and set
    // the values of the corresponding textarea elements.
     let eventText = localStorage.getItem(timeBlockId);
-    $(this).children('textarea').eq(0).val(eventText);
+    let textArea = $(this).children('textarea').eq(0);
+    textArea.val(eventText);
+    
+    textArea.on('click', function (){
+      $('#save-message').hide();
+    });
+
 
     //Save an event in the local storage binding it with the timeblock id
     let $saveBtn = $(this).children('button').eq(0);
-    $saveBtn.on('click', function () {
-      let event = $(this).siblings('textarea').eq(0).val()
-      localStorage.setItem(timeBlockId, event);
+    $saveBtn.on('click', function (){
+      let eventApp = $(this).siblings('textarea').eq(0).val()
+      localStorage.setItem(timeBlockId, eventApp);
+      $('#save-message').show();
     });
 
   });
